@@ -1,3 +1,5 @@
 .idea
 Pipfile.lock
 package-lock.json
+__pycache__/
+venv/
