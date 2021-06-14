@@ -93,6 +93,7 @@
 \fancyhead{}
 \fancyhead[CO,CE]{{\small{{\bf{Deliverable 1}} - COMP 354 - Summer 2021 - Team I}}}
  
+\setlength\parindent{0pt}
 
 
 \begin{document}
@@ -131,9 +132,7 @@
 \end{itemize}
 
 \section{Collaboration Patterns And Tools}
-\begin{description}
 In order to maximize our team's productivity and efficiency, we decided to use a number of collaboration tools to streamline the creation of ETERNITY. Below you'll find the three main tools used to accomplish this.
-\end{description}
 
 % List of collaboration tools.
 \begin{itemize}
@@ -170,9 +169,7 @@ In order to maximize our team's productivity and efficiency, we decided to use a
 \end{itemize}
 
 \section{Role Assignment}
-\begin{description}
 For a team to work together effectively, there need to be some well-defined roles so everyone understands their responsibilities. That is why our team was quick to assign roles. These were based on both a person's preference and skills, so everyone could contribute in something they were comfortable and skilled at.
-\end{description}
 \begin{center}
 \begin{tabular}{|l|l|}
     \hline
@@ -196,12 +193,9 @@ For a team to work together effectively, there need to be some well-defined role
 \end{center}
 
 \section{Function Mapping}
-\begin{description}
-To comply with the rules of the project, each team member was assigned one of the eight transcendental functions we are meant to implement. Seeing as there were only seven team members, we agreed not to do $\Gamma{}(x)$. \\ \\
+To comply with the rules of the project, each team member was assigned one of the eight transcendental functions we are meant to implement. Seeing as there were only seven team members, we agreed not to do $\Gamma{}(x)$. \\
 
 Each person was given time to learn more about the various functions, and we all picked the functions during a single meeting. We went person to person and asked which function that person would like to implement, which resulted in the following function assignment:
-\end{description}
-
 \begin{center}
 \begin{tabular}{|l|l|}
     \hline
@@ -225,75 +219,55 @@ Each person was given time to learn more about the various functions, and we all
 \end{center}
 
 \section{Function Definitions}
-\begin{description}
 Here are the definitions and implementations of seven of the transcendental functions.
-\end{description}
 
 \subsection{$\sigma$ (Standard Deviation)}
-\begin{description}
     Standard deviation is a measure of how spread out numbers are, and it is represented by the Greek letter sigma, $\sigma$. \\
     The formal definition is as follows:
-\end{description}
 \begin{equation}
     \sigma = \sqrt{\frac{\sum |x-\mu|^2}{N}}
 \end{equation}
-\begin{description}
 Where $x$ is a data point, $\mu$ is the mean of the data set, and $N$ is the number of data points. \cite{standard_deviation}
-\end{description}
 
 \subsection{$\sinh{x}$}
-\begin{description}
 The hyperbolic sine function is similar to the trigonometric sine function, but is based on a hyperbola instead of a circle. \cite{sinh}
-\end{description}
 \begin{equation}
     \sinh{x} = \frac{e^x-e^{-x}}{2}
 \end{equation}
 
 \subsection{$ab^x$}
-\begin{description}
 This is the exponential function and includes the exponentiation operation, which is described in the next section. \\
 Let $m$ be the exponentiation $b^x$, then
-\end{description}
 \begin{equation}
     ab^x = a\times m
 \end{equation}
 
 \subsection{$x^y$}
-\begin{description}
-The exponentiation operator has several definitions. The most common is when $y$ is an integer, in which case $x^y = x \times x \times ... \times x$ ($y$ times). If $y = 0$, then $x^y = 1$, and if $y < 0$, then $x^y = \frac{1}{x^{|y|}}$. \cite{exponents}\\ \\
+The exponentiation operator has several definitions. The most common is when $y$ is an integer, in which case $x^y = x \times x \times ... \times x$ ($y$ times). If $y = 0$, then $x^y = 1$, and if $y < 0$, then $x^y = \frac{1}{x^{|y|}}$. \cite{exponents}\\
 
-Yet if $y$ is a real number, then it can often only be approximated using a Taylor series or other means of approximation. \\ \\
+Yet if $y$ is a real number, then it can often only be approximated using a Taylor series or other means of approximation. \\
 
 One important instance of $x^y$ is $e^y$ which is defined as $e^y = \lim_{n \to \infty} (1 + \frac{y}{n})^n$. \cite{e^x}
-\end{description}
 
 \subsection{$\arccos{x}$}
-\begin{description}
-$\arccos{x}$ is an inverse trigonometric function. It is the inverse function of $\cos{x}$ with a limited domain. \\ \\
+$\arccos{x}$ is an inverse trigonometric function. It is the inverse function of $\cos{x}$ with a limited domain. \\
 
 If $y = \cos{x}$ then $x = \arccos{y}$, where $-1 \leq x \leq 1$ and $0 \leq y \leq \pi$. \cite{arccos}
-\end{description}
 
 \subsection{MAD (Mean Absolute Deviance)}
-\begin{description}
 Let $\mu$ be the average value in a data set of size $n$, and let $x_i$ be a value in this set. The mean absolute deviance is defined as \cite{mad}
-\end{description}
 \begin{equation}
     \frac{1}{n}\sum_{i=1}^{n}|x_i-\mu|
 \end{equation}
 
 \subsection{$\log_b(x)$}
-\begin{description}
-$\log_b(x)$ is defined as $\frac{\ln(x)}{\ln(b)}$, where $\ln(x)$ is the natural logarithm with base $e$ (though this identity holds for other bases as well). \cite{log}\\ \\
+$\log_b(x)$ is defined as $\frac{\ln(x)}{\ln(b)}$, where $\ln(x)$ is the natural logarithm with base $e$ (though this identity holds for other bases as well). \cite{log}\\
 
 If $y = e^x$, then the natural logarithm is the inverse such that $x = \ln(y)$. \cite{ln}
-\end{description}
 
 \section{Interviews}
 \subsection{Target Audience}
-\begin{description}
 Before beginning the interview, we realized we needed to have an idea of who would want to use the ETERNITY calculator. Obviously, a lot of people use calculators, but only a small subset of them would use the kinds of functions that ETERNITY would include. Therefore, we did some brainstorming during one of our group meetings and came up with the following target audience:
-\end{description}
 \begin{itemize}
     \item Students
     \item Statisticians
@@ -303,21 +277,15 @@ Before beginning the interview, we realized we needed to have an idea of who wou
     \item Engineers
     \item Professors
 \end{itemize}
-\begin{description}
 These groups helped us decide who to interview, what kind of questions to ask, and eventually the personas themselves.
-\end{description}
 
 \subsection{Interview Format}
-\begin{description}
-Before creating the interview questions, we unanimously agreed to go for a semi-structured format of interview. This is because the majority of our team did not have experience interviewing people, so an open interview structure was not feasible at our skill level. A fully-structured interview was possible, but we were worried that a rigid structure would limit what we could learn from our interviewees. \\ \\
+Before creating the interview questions, we unanimously agreed to go for a semi-structured format of interview. This is because the majority of our team did not have experience interviewing people, so an open interview structure was not feasible at our skill level. A fully-structured interview was possible, but we were worried that a rigid structure would limit what we could learn from our interviewees. \\
 
 We then chose the funnel model of interviews, where we start off with general questions and become more specific as the interview progresses. We believe that this ease's the interviewee's mind into the topic, allowing them to think more critically about the topic so that we can gain more useful information.
-\end{description}
 
 \subsection{Interview Questions}
-\begin{description}
 We developed the interview questions by telling each member of our team to come up with five questions in the shared Google Document, for a total of thirty-five questions. We then filtered, refined, and structured the questions down to thirty, as seen below:
-\end{description}
 \begin{enumerate}
     \item What is your age?
     \item Which languages are you capable of speaking fluently?
@@ -378,9 +346,7 @@ We developed the interview questions by telling each member of our team to come 
 \end{enumerate}
 
 \section{Transcripts}
-\begin{description}
     Here you'll find the transcripts of the seven interviews.
-\end{description}
 \subsection{Interview 1}
 \begin{enumerate}
     \item What is your age? \\
@@ -412,7 +378,7 @@ will graduate in August. \textb
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
+    \end{enumerate}
     \blue I would say average \textb \\
     Could you elaborate? \\
     \blue I can function using day-to-day technology, laptop, ipad, etc… But I wouldn’t be using anything
@@ -427,7 +393,7 @@ will graduate in August. \textb
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very often, more than twice a day for sure. \textb
     
     \item As a follow-up to my previous question, what software, if any, do you use on a day to day basis? \\
@@ -491,8 +457,8 @@ two decimal precision for the cents, I’m OK. \textb
         \item Better performance/ precision/ job done better
         \item Didn’t like current tool
         \item Other (explain)
-    \end{enumerate} \\
-    \blue     If it has better performance, is more precise or adds value to my day-to-day work, then I’d be open to trying it out.\textb
+    \end{enumerate}
+    \blue If it has better performance, is more precise or adds value to my day-to-day work, then I’d be open to trying it out.\textb
     
     \item Which alternative strikes you as the most practical:
     \begin{enumerate}
@@ -500,7 +466,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item a web app accessible from any device with Internet access,
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
+    \end{enumerate}
     \blue A Desktop application. If it’s for work, sometimes, I won’t have my phone next to me. But, for day-to-day tasks, like if there’s a big promotion when I’m grocery shopping, then I like to use my phone since I don’t have my laptop and it’s more convenient. \textb
     
     \item Have you ever used an online calculator? \\
@@ -554,7 +520,7 @@ two decimal precision for the cents, I’m OK. \textb
     \blue English and Chinese (Mandarin) \textb
     
     \item What is your current employment status? If you are employed, what do you do? \\
-    \blue Permanent Employee， I am a cost estimator.  \textb
+    \blue Permanent Employee, I am a cost estimator.  \textb
     
     \item What is the highest degree or level of education you have completed? \\
     \blue Master in Engineering. \textb
@@ -593,7 +559,7 @@ two decimal precision for the cents, I’m OK. \textb
     \blue Basic functions.  \textb
     
     \item If you find yourself using a calculator, what functions or types of calculations do you use/perform? \\
-    \blue  “+， -， ×，÷”. \textb
+    \blue  +, -, $\times$, $\div$ \textb
 
     \item Does the complexity or features offered by a calculator matter? Will it affect which type of calculator you choose to buy or use over another? \\
     \blue Doesn’t matter. I don’t use the real calculator most of time. \textb
@@ -684,7 +650,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very good. \textb
     
     \item How often do you use technology (computers, software, other hardware) on a daily basis?
@@ -694,7 +660,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very often. Actually, I am a software developer so I work with technology every day. \textb
     
     \item As a follow-up to my previous question, what software, if any, do you use on a day to day basis? \\
@@ -748,7 +714,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item \blue a web app accessible from any device with Internet access, \textb
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
+    \end{enumerate}
     \blue It would also be nice if the webapp is responsive for my phone and available offline. \textb
     
     \item Have you ever used an online calculator? \\
@@ -809,7 +775,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very good but not excellent. On a scale of 1 to 10, a 7 or 8. \textb
     
     \item How often do you use technology (computers, software, other hardware) on a daily basis?
@@ -819,7 +785,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very often. \textb
     
     \item As a follow-up to my previous question, what software, if any, do you use on a day to day basis? \\
@@ -861,7 +827,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Better performance/ precision/ job done better
         \item Didn’t like current tool
         \item Other (explain)
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Curiosity. \textb
     
     \item Which alternative strikes you as the most practical:
@@ -870,7 +836,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item a web app accessible from any device with Internet access,
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Can I choose two of them? \textb \\
     Sure thing. \\
     \blue One on my phone and a physical one. \textb
@@ -940,7 +906,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very good\textb
     
     \item How often do you use technology (computers, software, other hardware) on a daily basis?
@@ -950,7 +916,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Very often. \textb
     
     \item As a follow-up to my previous question, what software, if any, do you use on a day to day basis? \\
@@ -994,7 +960,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Better performance/ precision/ job done better
         \item Didn’t like current tool
         \item Other (explain)
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Curiosity. \textb
     
     \item Which alternative strikes you as the most practical:
@@ -1003,7 +969,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item a web app accessible from any device with Internet access,
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
+    \end{enumerate}
     \blue A calculator app on your phone,  \textb 
     
     
@@ -1072,7 +1038,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
+    \end{enumerate}
     \blue A. Very Good.
 
 \textb
@@ -1084,7 +1050,7 @@ two decimal precision for the cents, I’m OK. \textb
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Oh I use technology a lot. More than half of my day consists of sitting in front of a computer or using my phone for calls and meetings.
  \textb
     
@@ -1145,10 +1111,7 @@ For Excel and Word, I mostly use these software to either calculate employee sal
  \textb
     
     \item Are you open to the idea of trying alternative tools, or do you prefer to sticking to what you are already using? If not, please explain why. \\
-    \blue Definitely, in any field that deals with computers or technology you have to be willing to try new tools. Things adapt and evolve all the time, if you do not adapt with it you are putting yourself at a disadvantage. So, I would say I am always trying new tools to simplify my life.
-
-
- \textb \\
+    \blue Definitely, in any field that deals with computers or technology you have to be willing to try new tools. Things adapt and evolve all the time, if you do not adapt with it you are putting yourself at a disadvantage. So, I would say I am always trying new tools to simplify my life. \textb
     
     \item What best describes your willingness to try alternatives?
     \begin{enumerate}
@@ -1156,10 +1119,8 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item Better performance/ precision/ job done better
         \item Didn’t like current tool
         \item Other (explain)
-    \end{enumerate} \\
-    \blue I would say it is more of a combination of A and B. I love computers so I try different things that come out. But, if it doesn’t work well I will stop using it.
-
- \textb
+    \end{enumerate}
+    \blue I would say it is more of a combination of A and B. I love computers so I try different things that come out. But, if it doesn’t work well I will stop using it. \textb
     
     \item Which alternative strikes you as the most practical:
     \begin{enumerate}
@@ -1167,10 +1128,8 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item a web app accessible from any device with Internet access,
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
-    \blue Either a web application or desktop application. I don’t like taking out my phone during work so that is out of the equation. And I don’t like carrying around physical things, so I would say software is the best way to go.
-
-  \textb 
+    \end{enumerate}
+    \blue Either a web application or desktop application. I don’t like taking out my phone during work so that is out of the equation. And I don’t like carrying around physical things, so I would say software is the best way to go. \textb 
     
     
     \item Have you ever used an online calculator? \\
@@ -1206,18 +1165,16 @@ For Excel and Word, I mostly use these software to either calculate employee sal
     \item Have you used your operating system’s default calculator? If so, what did you like and dislike about it? \\
     \blue Yes. I use the one that comes with Windows. It is good, does everything I need.
 
-  \textb \\
+  \textb
    
     
     \item When using a calculator, does the appearance of the math expression matter to you? (x\^{}y vs $x^y$). \\
-    \blue Yes, I have not seen the first way of writing x power y since CEGEP. Keep it simple and show the expression the way it is meant to be shown.
- 
- \textb
+    \blue Yes, I have not seen the first way of writing x power y since CEGEP. Keep it simple and show the expression the way it is meant to be shown. \textb
     
     \item How often do you use trigonometric functions? \\ 
     \blue  I use them rarely, but when I do I always talk in degrees. Who wants to talk in radians? Most people don’t even know what radians even are.
 
- \textb  \\
+ \textb
     
     
     
@@ -1225,7 +1182,7 @@ For Excel and Word, I mostly use these software to either calculate employee sal
     \blue I can’t think of any since I use only the simple ones. But adding a function or button to change the theme of the calculator would be cool.
 
  
- \textb \\
+ \textb
    
     
     \item That’s all for the interview. Do you have any questions for myself or things you’d like to add? Are there things that you’d like to discuss regarding either online calculators, calculators in general, or even different online tools/software? \\
@@ -1265,9 +1222,8 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item Average
         \item Below Average
         \item Not Good
-    \end{enumerate} \\
-    \blue I’d say very good.
-\textb
+    \end{enumerate}
+    \blue I’d say very good.\textb
     
     \item How often do you use technology (computers, software, other hardware) on a daily basis?
     \begin{enumerate}
@@ -1276,7 +1232,7 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item Once a day
         \item Less than once a day
         \item Once a week
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Every day. \textb
     
     \item As a follow-up to my previous question, what software, if any, do you use on a day to day basis? \\
@@ -1321,9 +1277,7 @@ For Excel and Word, I mostly use these software to either calculate employee sal
  \textb
     
     \item Are you open to the idea of trying alternative tools, or do you prefer to sticking to what you are already using? If not, please explain why. \\
-    \blue I’m open to trying new things. It is very much a part of the job to become familiar with as many new tools as possible if they can speed up the workflow.
-
- \textb \\
+    \blue I’m open to trying new things. It is very much a part of the job to become familiar with as many new tools as possible if they can speed up the workflow.\textb
     
     \item What best describes your willingness to try alternatives?
     \begin{enumerate}
@@ -1331,9 +1285,8 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item Better performance/ precision/ job done better
         \item Didn’t like current tool
         \item Other (explain)
-    \end{enumerate} \\
-    \blue Generally I prioritize ease of use and performance over any other metric. One thing that matters a lot, is the ability to integrate with existing tools.
- \textb
+    \end{enumerate}
+    \blue Generally I prioritize ease of use and performance over any other metric. One thing that matters a lot, is the ability to integrate with existing tools. \textb
     
     \item Which alternative strikes you as the most practical:
     \begin{enumerate}
@@ -1341,7 +1294,7 @@ For Excel and Word, I mostly use these software to either calculate employee sal
         \item a web app accessible from any device with Internet access,
         \item a physical calculator
         \item a desktop application, such as the default Windows calculator?
-    \end{enumerate} \\
+    \end{enumerate}
     \blue Most of my work is done on the computer, so desktop applications suit my needs the most, especially if it can integrate with my current tools.
   \textb 
     
@@ -1386,32 +1339,24 @@ For Excel and Word, I mostly use these software to either calculate employee sal
     
     
     \item Which functions that are generally not on a calculator, would you like to see added? \\
-    \blue I don’t know, I generally use calculators for simple calculations. Anything more involved or specific to a certain domain would generally be more easily done through code rather than a GUI.
- 
- \textb \\
+    \blue I don’t know, I generally use calculators for simple calculations. Anything more involved or specific to a certain domain would generally be more easily done through code rather than a GUI.\textb
    
     
     \item That’s all for the interview. Do you have any questions for myself or things you’d like to add? Are there things that you’d like to discuss regarding either online calculators, calculators in general, or even different online tools/software? \\
-    \blue No.
-
- \textb
+    \blue No. \textb
 \end{enumerate}
 
 \section{Personas}
-\begin{description}
 This section includes the seven personas created to guide us through the software development process.
-\end{description}
 
 \subsection{Jason Morin (Highschool Student)}
-\begin{description}
-Jason is a high school student that is currently studying from home due to the pandemic. His classes range from French and English to Math and Physics. At first, he was quite pleased with the idea of not physically having to go to school. However, after a year, he is really missing hanging out with his peers. \\ \\
+Jason is a high school student that is currently studying from home due to the pandemic. His classes range from French and English to Math and Physics. At first, he was quite pleased with the idea of not physically having to go to school. However, after a year, he is really missing hanging out with his peers. \\
 
-To pass the time, he is trying to find alternatives to his everyday routines. He recently switched from using Microsoft Word to \LaTeX{} to write his homework. He heard that it would be a useful tool to learn, and is enjoying the transition. After almost a year of online learning, he’s completely switched over to digital learning and is no longer using any physical paper unless he needs to draw a graph for Math.  \\ \\
+To pass the time, he is trying to find alternatives to his everyday routines. He recently switched from using Microsoft Word to \LaTeX{} to write his homework. He heard that it would be a useful tool to learn, and is enjoying the transition. After almost a year of online learning, he’s completely switched over to digital learning and is no longer using any physical paper unless he needs to draw a graph for Math.  \\
 
-Jason has no problem using the computer or learning new programs. He’s been using computers for as long as he remembers. In fact, he prefers using the computer as much as possible. For example, his notes are written and saved on Google Drive. This way, he can switch from his laptop to desktop at any time and still have access to his notes. \\ \\
+Jason has no problem using the computer or learning new programs. He’s been using computers for as long as he remembers. In fact, he prefers using the computer as much as possible. For example, his notes are written and saved on Google Drive. This way, he can switch from his laptop to desktop at any time and still have access to his notes. \\
 
 Jason likes to customize his environment as much as possible, it is one of his main hobbies. He built his own computer and installed custom RGB lights in the computer case. His browser, Google Chrome is also customized with a custom theme that he created himself as a personal project.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1441,13 +1386,11 @@ Jason likes to customize his environment as much as possible, it is one of his m
 \end{center}
 
 \subsection{Helen Hermann (University Student)}
-\begin{description}
-Helen Hermann is a 21 year old university student studying chemistry. Her classes are currently online due to the pandemic, but she can’t wait until classes go back to being in person so she can get more lab experience. \\ \\
+Helen Hermann is a 21 year old university student studying chemistry. Her classes are currently online due to the pandemic, but she can’t wait until classes go back to being in person so she can get more lab experience. \\
 
-She loves the natural sciences and the environment, so she frequently contributes to articles and blogs to the university’s science and environment clubs. That’s because she’s a very outspoken person who wants to do what’s best for the world.  \\ \\
+She loves the natural sciences and the environment, so she frequently contributes to articles and blogs to the university’s science and environment clubs. That’s because she’s a very outspoken person who wants to do what’s best for the world.  \\
 
 While Helen uses a lot of math as part of her courses, she only really needs the basic functionalities like addition, multiplication, subtraction, division, powers, and logarithms. She has no preference for calculators, and she uses whatever is at hand — be it the university supplied calculator or the default calculator on her phone or computer.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1477,13 +1420,11 @@ While Helen uses a lot of math as part of her courses, she only really needs the
 \end{center}
 
 \subsection{Daniel Paradis (Statistician)}
-\begin{description}
-Daniel Paradis is a 42-year-old statistician working for the Canadian government in Ottawa. After a bachelor in mathematics, he did a master’s degree in statistical science, both at the university of Toronto. \\ \\
+Daniel Paradis is a 42-year-old statistician working for the Canadian government in Ottawa. After a bachelor in mathematics, he did a master’s degree in statistical science, both at the university of Toronto. \\
 
-He enjoys playing Chess online and practices martial arts three times a week. Before the pandemic, he would often gather to play bass with his close friends.  \\ \\
+He enjoys playing Chess online and practices martial arts three times a week. Before the pandemic, he would often gather to play bass with his close friends.  \\
 
 His job consists mostly of collecting, analysing, and interpreting data for the government. Doing so requires knowledge of spreadsheets and databases which he has. He is asked to do complex analysis of situations, but most of the time the calculations are redundant, which is why he relies heavily on his calculator. An appropriate tool for is line of work, should have functionalities to perform sample variance, standard deviation, and correlation coefficient. The best would be a tool able to perform all the calculations needed given the sample points. So he can focus his work on interpretations and recommendations.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1513,13 +1454,11 @@ His job consists mostly of collecting, analysing, and interpreting data for the 
 \end{center}
 
 \subsection{John Smith (Data Analyst)}
-\begin{description}
-John Smith is a 32 year old data analyst working at a popular company that specializes in home appliances. Although he initially graduated with a degree in physics, John was able to adjust to a career in data analytics by first learning the required skill set through online courses and eventually completing a certificate program on the topic. \\ \\
+John Smith is a 32 year old data analyst working at a popular company that specializes in home appliances. Although he initially graduated with a degree in physics, John was able to adjust to a career in data analytics by first learning the required skill set through online courses and eventually completing a certificate program on the topic. \\
 
-In his spare time, John likes to read foreign literature and practice his guitar. He also often spends some time playing online video games with his friends when they can’t meet each other in person.  \\ \\
+In his spare time, John likes to read foreign literature and practice his guitar. He also often spends some time playing online video games with his friends when they can’t meet each other in person.  \\
 
 Due to his line of work as well as his educational background, John has considerable experience using many data driven frameworks and tools, such as SQL and especially those that make use of Python and Javascript libraries such as SciKitLearn and D3.js. The usage of calculation tools is particularly important for John’s job when he must make sense of and visualize the data he is exposed to every single day.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1549,13 +1488,11 @@ Due to his line of work as well as his educational background, John has consider
 \end{center}
 
 \subsection{Jeremy Ladovka (Accountant)}
-\begin{description}
-Jeremy is a 38 year old accountant who works for a large web agency in the Greater Montreal area. Jeremy is a very educated individual, having completed his Master Degree in Accountancy at Concordia University in Montreal. Being an extrovert, Jeremy enjoys going out with friends and communicating with people on a day to day basis. As a result, COVID-19 has been really hard on him, causing him to miss office life at work. Although working from home has its perks for Jeremy, he ultimately can’t wait to get back into the office to socialize and communicate face-to-face with his colleagues once again. \\ \\
+Jeremy is a 38 year old accountant who works for a large web agency in the Greater Montreal area. Jeremy is a very educated individual, having completed his Master Degree in Accountancy at Concordia University in Montreal. Being an extrovert, Jeremy enjoys going out with friends and communicating with people on a day to day basis. As a result, COVID-19 has been really hard on him, causing him to miss office life at work. Although working from home has its perks for Jeremy, he ultimately can’t wait to get back into the office to socialize and communicate face-to-face with his colleagues once again. \\
 
-In addition to going out with friends, Jeremy enjoys playing sports and playing video games. With that being said, Jeremy has been playing football since his youth and plays with his friends weekly on a competitive football team. Interestingly, Jeremy also loves math and problem solving. This is especially useful in his day-to-day work as an Accountant, considering he loves working due to often needing to solve complex mathematical problems. \\ \\
+In addition to going out with friends, Jeremy enjoys playing sports and playing video games. With that being said, Jeremy has been playing football since his youth and plays with his friends weekly on a competitive football team. Interestingly, Jeremy also loves math and problem solving. This is especially useful in his day-to-day work as an Accountant, considering he loves working due to often needing to solve complex mathematical problems. \\
 
 At work, Jeremy uses a computer and a plethora of software in order to successfully complete his work every day. Jeremy states that despite using a Windows machine most of his life, nothing compares to the Mac operating system. With that being said, Jeremy is very educated when it comes to technology and computers, especially when it comes to both computer hardware and software. Jeremy uses Safari as his main means of navigating the web while also using the entire Microsoft Office suite in order to get his Accounting related tasks completed (Word, Excel, OneNote, OneDrive, etc…). Although Jeremy uses several different hardware and software to get his work done, he says his favorite piece of hardware is his standard Casio calculator which includes only the absolute necessary functions.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1585,13 +1522,11 @@ At work, Jeremy uses a computer and a plethora of software in order to successfu
 \end{center}
 
 \subsection{Mingming Liu (Project Manager)}
-\begin{description}
-Mingming Liu is a project manager who works for an engineering company in Brossard. She graduated from McGill University Engineering Budget Graduate Program. Since work requires a lot of calculations, she likes to read a lot to make up for her time in contact with words. Even though she has a lot of time to study at home due to the COVID-19, she hopes to still find time to exercise and socialize. \\ \\
+Mingming Liu is a project manager who works for an engineering company in Brossard. She graduated from McGill University Engineering Budget Graduate Program. Since work requires a lot of calculations, she likes to read a lot to make up for her time in contact with words. Even though she has a lot of time to study at home due to the COVID-19, she hopes to still find time to exercise and socialize. \\
 
-In addition to reading, she also likes to spend time with her pet cat. Especially because of the COVID-19, she has more time with the cat. Each morning, she drinks coffee and spends time in the backyard garden with her cat. In the afternoon she will have a nap with the cat on the recliner in the backyard. After dinner, she also has more time to clean the cat litter. \\ \\
+In addition to reading, she also likes to spend time with her pet cat. Especially because of the COVID-19, she has more time with the cat. Each morning, she drinks coffee and spends time in the backyard garden with her cat. In the afternoon she will have a nap with the cat on the recliner in the backyard. After dinner, she also has more time to clean the cat litter. \\
 
 At work, because she needs to calculate a reasonable number of people for each project, and ensure that the materials are sufficient and will not be wasted. Therefore, she often uses a calculator. She usually uses Google to browse the web, but also uses Word and Excel to complete related tasks. Furthermore, Liu has strong computer skills and is proficient in network administration. As the workload grows, she hopes to have a convenient and fast calculator to help her with new tasks.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1621,13 +1556,11 @@ At work, because she needs to calculate a reasonable number of people for each p
 \end{center}
 
 \subsection{Mohammad Memarbashi (Civil Engineer)}
-\begin{description}
-Mohammad Memarbashi is a 29 year old civil engineer who’s been working in the field since completing his master’s degree. \\ \\
+Mohammad Memarbashi is a 29 year old civil engineer who’s been working in the field since completing his master’s degree. \\
 
-He enjoys spending his weekends with friends, by going out and having barbecues. He also considers himself to be a bit of a chef as he tries to make all his food from scratch. \\ \\
+He enjoys spending his weekends with friends, by going out and having barbecues. He also considers himself to be a bit of a chef as he tries to make all his food from scratch. \\
 
 He frequently uses software like MATLAB, Excel, and AutoCAD in his line of work, so he prefers using the built-in math functions in these tools when doing calculations. Yet he also always keeps a small calculator and some pen and paper on his work desk, in case he ever needs to do some quick calculations.
-\end{description}
 \begin{center}
     \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
@@ -1657,15 +1590,13 @@ He frequently uses software like MATLAB, Excel, and AutoCAD in his line of work,
 \end{center}
 
 \section{Use Case Modeling}
-\begin{description}
-The interview results were further analyzed to create two groups of use cases. \\ \\
+The interview results were further analyzed to create two groups of use cases. \\
 
-The first group involved the user's environment and the other software they will be using. This came directly from the interviews, and told us \textbf{why} the user would use ETERNITY. We referred to these as high-level use cases, as they are the way the user would think of their interactions with ETERNITY. \\ \\
+The first group involved the user's environment and the other software they will be using. This came directly from the interviews, and told us \textbf{why} the user would use ETERNITY. We referred to these as high-level use cases, as they are the way the user would think of their interactions with ETERNITY. \\
 
-Once we understood that, we analyzed the common aspects of these high-level use cases in order to understand \textbf{how} the user would use ETERNITY. Because this was much less abstract and closer to the actual code written, we referred to these as low-level use cases. \\ \\
+Once we understood that, we analyzed the common aspects of these high-level use cases in order to understand \textbf{how} the user would use ETERNITY. Because this was much less abstract and closer to the actual code written, we referred to these as low-level use cases. \\
 
 Below you will see the diagrams for both.
-\end{description}
 
 \subsection{High-Level Use Cases}
 \begin{center}
@@ -1679,9 +1610,5 @@ Below you will see the diagrams for both.
 
 \bibliography{sources} 
 \bibliographystyle{IEEEtran}
-
-\begin{description}
-
-\end{description}
 
 \end{document}
