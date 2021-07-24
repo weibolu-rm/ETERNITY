@@ -15,6 +15,12 @@ $ pipenv shell
 $ sudo npm install -g @vue/cli
 ```
 
+### Install jQuery
+```
+$ cd frontend
+$ npm install jquery
+```
+
 ### Run backend
 ```
 $ cd backend
@@ -26,7 +32,6 @@ $ python manage.py runserver
 ```
 $ cd frontend
 $ npm install
-$ npm install jquery
 $ npm run serve
 ```
 Vue server will be listening on http://localhost:8080/
