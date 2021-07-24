@@ -1,4 +1,10 @@
 <template>
+<div class="uk-text-right">
+<label class="switch nightModeSwitch">
+  <input class="nightModeSwitch" type="checkbox" unchecked>
+  <span class="slider round"></span>
+</label>
+</div>
   <div class="uk-container-xsmall uk-align-center">
     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
       <div>
@@ -129,6 +135,7 @@
       </div>
     </div>
   </div>
+
 </template>
 <script>
 export default {
