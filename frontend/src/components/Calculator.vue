@@ -52,6 +52,26 @@
         </a>
       </div>
     </div>
+    <div class="uk-grid-small uk-child-width-expand@s uk-text-success uk-text-center" uk-grid>
+      <div>
+        <a @click="append('(')" ref="lparen" style="text-decoration: none"
+           class="uk-card uk-card-small uk-card-default uk-text-bold uk-text-warning uk-card-body uk-card-hover">&lpar;</a>
+      </div>
+      <div>
+        <a @click="append(')')" ref="rparen" style="text-decoration: none"
+           class="uk-card uk-card-small uk-card-default uk-text-bold uk-text-warning uk-card-body uk-card-hover">&rpar;</a>
+      </div>
+      <div>
+        <a @click="append(', ')" ref="comma" style="text-decoration: none"
+           class="uk-card uk-card-small uk-card-default uk-text-bold uk-text-warning uk-card-body uk-card-hover">&comma;
+        </a>
+      </div>
+      <div>
+        <a @click="backspace()" ref="backspace" style="text-decoration: none"
+           class="uk-card uk-card-small uk-card-default uk-text-success uk-card-body uk-card-hover">DEL
+        </a>
+      </div>
+    </div>
     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
       <div>
         <a @click="append('7')" ref="seven" style="text-decoration: none"
@@ -173,6 +193,9 @@ export default {
     },
     append(value) {
       this.equation += value
+    },
+    backspace(){
+      this.equation = this.equation.slice(0,-1);
     },
     async evaluate() {
       this.expression = this.equation.replace(/[/]/mg, 'divide')
