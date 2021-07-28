@@ -180,16 +180,16 @@ export default {
       this.equation = "log"
     },
     mad() {
-      this.equation = "mad"
+      this.equation = "MAD"
     },
     standardDeviation() {
-      this.equation = "standard deviation"
+      this.equation = "sd"
     },
     abPowerX() {
-      this.equation = "ab power x"
+      this.equation = "abPow"
     },
     xPowerY() {
-      this.equation = "x power y"
+      this.equation = "pow"
     },
     append(value) {
       this.equation += value
