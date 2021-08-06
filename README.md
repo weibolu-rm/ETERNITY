@@ -12,6 +12,15 @@ $ pipenv install --dev
 $ pipenv shell
 ```
 
+alternatively using python3 virtualenv
+
+```
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+
+$ pip install -r requirements.txt
+```
+
 ### Set up vue cli
 ```
 $ sudo npm install -g @vue/cli
