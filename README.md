@@ -1,6 +1,8 @@
 # ETERNITY
 Calculator implementation from scratch
 
+![poster](https://user-images.githubusercontent.com/10562703/128573357-ddb20ba3-a0d7-4d74-b538-6d6854112d86.png)
+
 ## How to run project
 Prerequites: have python and node.js installed
 
