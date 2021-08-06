@@ -232,7 +232,7 @@ def standard_deviation(data):
     total_squared = 0
     # Step 1, 2
     for i in data:
-        i = int(i)
+        i = float(i)
         total += i  # sum of dataset
         total_squared += i * i  # sum of the square of the dataset
     # Step 3, 4
@@ -240,7 +240,7 @@ def standard_deviation(data):
     # Step 5, 6
     variance = (total_squared - sumOfDistances) / N
     # Step 7
-    ans = variance ** 0.5
+    ans = variance ** 0.5 # This should be replaced with our definition of exponentials.
     return ans
 
 def standard_deviation_http(data):
