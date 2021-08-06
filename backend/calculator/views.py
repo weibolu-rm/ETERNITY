@@ -17,6 +17,9 @@ def ceil(n):
 def floor(n):
     return int(n // 1)
 
+def absolute(n):
+	return n if n >= 0 else -n
+
 #------------------------------------------------------------------------------------------------
 #    EXPONENTIAL FUNCTION: X^Y
 #------------------------------------------------------------------------------------------------
@@ -201,9 +204,6 @@ from functools import reduce
 def find_mean(input_list):
 	return reduce((lambda x, y: x + y), input_list) / len(input_list)
 
-# Find the absolute value of the input.
-def absolute(n):
-	return n if n >= 0 else -n
 
 # Finds the mean absolute deviation.
 def mean_absolute_deviation(input_list):
