@@ -21,50 +21,48 @@ def floor(n):
 #    EXPONENTIAL FUNCTION: X^Y
 #------------------------------------------------------------------------------------------------
 
-# def exponential(x, y):
+def exponential(x, y):
     
-#     # Check if the passed in values are integers or decimals
-#     # Both integers and decimals have different algorithms to calculate their exponentiation
+    # Check if the passed in values are integers or decimals
+    # Both integers and decimals have different algorithms to calculate their exponentiation
     
-#     if x % 1 == 0 and y % 1 == 0:
+    if x % 1 == 0 and y % 1 == 0:
         
-#         # If y is 0, we can return 0 since 0^x = 0
+        # If y is 0, we can return 0 since 0^x = 0
         
-#         if x == 0:
-#   	        return 0
+        if x == 0:
+  	        return 0
   	        
-#   	    # If y is 0, we can return 1 since x^0 = 1
+  	    # If y is 0, we can return 1 since x^0 = 1
   	        
-#         if y == 0:
-#   	        return 1
+        if y == 0:
+  	        return 1
   	        
-#   	    # Recursively call myPow until y = 0, which by then we will have our integer power.
+  	    # Recursively call myPow until y = 0, which by then we will have our integer power.
   	    
-#         return exponential(x,y-1) * x
+        return exponential(x,y-1) * x
         
-#     # Condition where x or y mod 1 != 0, which means we have a decimal in either x or y    
+    # Condition where x or y mod 1 != 0, which means we have a decimal in either x or y    
     
-#     else:
+    else:
 
-#     # Credit to https://blog.prepscholar.com/natural-log-rules
-#     # and https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf for natural log identities used to solve this
-#     # problem
+    # Credit to https://blog.prepscholar.com/natural-log-rules
+    # and https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf for natural log identities used to solve this
+    # problem
     
-#         e = 2.7182818284
-#         if(ln(x) != None):
-#             return e ** (y*log(e,x)) # where e is the base (natural log)
+        if(ln(x) != None):
+            return exponential(euler,(y*log(euler,x))) # where e is the base (natural log)
 
-import numpy as np
 def taylor_exp(x):    
      
       if x == 0:
           return 1
       
-      x0 = np.abs(x)
+      x0 = absolute(x)
      
       Tn = 1
       
-      n = ceil(x0 * np.e) * 12
+      n = ceil(x0 * euler) * 12
       for k in range(n, 0, -1):
           Tn = Tn * (x0 / k) + 1
      
@@ -72,30 +70,30 @@ def taylor_exp(x):
           Tn = 1 / Tn
       return Tn
 
-def exponential(a,x):
-    if x==0:
-        return 1
-    if a==0:
-        return 0
+# def exponential(a,x):
+#     if x==0:
+#         return 1
+#     if a==0:
+#         return 0
 
-    if a<0:
-        x_floor= floor(x)
+#     if a<0:
+#         x_floor= floor(x)
         
-        if x_floor%2 == 0:
-            sign=1
-        else:
-            sign=-1
+#         if x_floor%2 == 0:
+#             sign=1
+#         else:
+#             sign=-1
         
-        if x != x_floor:
-            ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
-            print("Error out of range")
-            return
-        temp=log(-a)*x
+#         if x != x_floor:
+#             ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
+#             print("Error out of range")
+#             return
+#         temp=ln(-a)*x
 
-        return sign*taylor_exp(temp)
-    else:   
-        temp=log(a)*x
-        return taylor_exp(temp)
+#         return sign*taylor_exp(temp)
+#     else:   
+#         temp=ln(a)*x
+#         return taylor_exp(temp)
 
 def exponential_http(x,y):
     return HttpResponse(exponential(x,y))
@@ -170,30 +168,27 @@ def ln(x):
     if x<=0 :
         return None
 
-    e = 2.71828182845905
     precision=0.000001
     P=x
     result = 0.0
 
-    while(P >= e):
-        P /= e
+    while(P >= euler):
+        P /= euler
         result+=1
 
-    result += (P / e)
+    result += (P / euler)
     P = x
 
     A = result
-    L = (P / (e**(result - 1.0)))
-    R = ((result - 1.0) * e)
-    result = ((L + R) / e)
+    L = (P / exponential(euler,(result - 1.0)))
+    R = ((result - 1.0) * euler)
+    result = ((L + R) / euler)
 
     while abs(result-A)>precision:
         A = result
-        L = (P / (e**(result - 1.0)))
-        R = ((result - 1.0) * e)
-        result = ((L + R) / e)
-
-    
+        L = (P / exponential(euler,(result - 1.0)))
+        R = ((result - 1.0) * euler)
+        result = ((L + R) / euler)
     return result
 
 #------------------------------------------------------------------------------------------------
