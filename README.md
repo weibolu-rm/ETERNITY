@@ -1,6 +1,8 @@
 # ETERNITY
 Calculator implementation from scratch
 
+![poster](https://user-images.githubusercontent.com/10562703/128573357-ddb20ba3-a0d7-4d74-b538-6d6854112d86.png)
+
 ## How to run project
 Prerequites: have python and node.js installed
 
@@ -8,6 +10,15 @@ Prerequites: have python and node.js installed
 ```
 $ pipenv install --dev 
 $ pipenv shell
+```
+
+alternatively using python3 virtualenv
+
+```
+$ virtualenv -p python3 venv
+$ source venv/bin/activate
+
+$ pip install -r requirements.txt
 ```
 
 ### Set up vue cli
