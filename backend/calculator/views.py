@@ -183,13 +183,13 @@ def ln(x):
     P = x
 
     A = result
-    L = (P / (e**(result - 1.0)))
+    L = (P / (e**(result - 1.0))) # Should be changed to use our exponential.
     R = ((result - 1.0) * e)
     result = ((L + R) / e)
 
-    while abs(result-A)>precision:
+    while absolute(result-A)>precision:
         A = result
-        L = (P / (e**(result - 1.0)))
+        L = (P / (e**(result - 1.0))) # Should be changed to use our exponential.
         R = ((result - 1.0) * e)
         result = ((L + R) / e)
 
