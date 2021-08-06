@@ -8,7 +8,7 @@
    <div class="uk-container-xsmall uk-align-center">
       <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
          <div>
-            <div class="uk-card uk-card-default uk-card-default uk-card-body uk-text-right uk-text-lead">
+            <div class="uk-card uk-card-default uk-card-default uk-card-body uk-text-right uk-text-lead textBox">
                {{ this.equation }}
             </div>
          </div>
@@ -74,37 +74,37 @@
       </div>
       <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
          <div>
-            <a @click="pi" ref="clear" style="text-decoration: none"
+            <a @click="pi" ref="pi" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#x03C0;</a>
          </div>
          <div>
-            <a @click="e" ref="clear" style="text-decoration: none"
+            <a @click="e" ref="e" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#8455;</a>
          </div>
          <div>
-            <a @click="g" ref="clear" style="text-decoration: none"
+            <a @click="g" ref="g" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">g</a>
          </div>
          <div>
-            <a @click="c" ref="clear" style="text-decoration: none"
+            <a @click="c" ref="c" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">c</a>
          </div>
       </div>
       <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
          <div>
-            <a @click="phi" ref="clear" style="text-decoration: none"
+            <a @click="phi" ref="phi" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#x0278;</a>
          </div>
          <div>
-            <a @click="pyth" ref="clear" style="text-decoration: none"
+            <a @click="pyth" ref="pyth" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#8730;2</a>
          </div>
          <div>
-            <a @click="theo" ref="clear" style="text-decoration: none"
+            <a @click="theo" ref="theo" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#8730;3</a>
          </div>
          <div>
-            <a @click="ANS" ref="clear" style="text-decoration: none"
+            <a @click="ANS" ref="ANS" style="text-decoration: none"
                class="uk-card uk-card-small uk-card-default uk-text-warning uk-card-body uk-card-hover">ANS</a>
          </div>
       </div>
@@ -197,7 +197,8 @@ export default {
   data() {
     return {
       equation: "",
-      expression: ""
+      expression: "",
+      ansVar: "",
     }
   },
   methods: {
@@ -206,25 +207,25 @@ export default {
       this.equation = ""
     },
     arcos() {
-      this.equation = "arccos"
+      this.equation = "arccos("
     },
     sinh() {
-      this.equation = "sinh"
+      this.equation = "sinh("
     },
     log() {
-      this.equation = "log"
+      this.equation = "log("
     },
     mad() {
-      this.equation = "MAD"
+      this.equation = "MAD("
     },
     standardDeviation() {
-      this.equation = "sd"
+      this.equation = "sd("
     },
     abPowerX() {
-      this.equation = "abPow"
+      this.equation = "abPow("
     },
     xPowerY() {
-      this.equation = "pow"
+      this.equation = "pow("
     },
     append(value) {
       this.equation += value
@@ -233,34 +234,36 @@ export default {
       this.equation = this.equation.slice(0,-1);
     },
     e() {
-      this.equation = "2.7182818284"
+      this.equation += "2.7182818284"
     },
     g() {
-      this.equation = "0.00000000006674"
+      this.equation += "0.00000000006674"
     },
     c() {
-      this.equation = "299792458"
+      this.equation += "299792458"
     },
      pi() {
-      this.equation = "3.1415926536"
+      this.equation += "3.1415926536"
     },
      phi() {
-      this.equation = "1.6180339887"
+      this.equation += "1.6180339887"
     },
      pyth() {
-      this.equation = "1.4142135623"
+      this.equation += "1.4142135623"
     },
      theo() {
-      this.equation = "1.7320508075"
+      this.equation += "1.7320508075"
+    }, 
+     ANS() {
+      this.equation = this.ansVar;
     },
-    ANS() {
-      this.equation = this.expression
-    },    
     async evaluate() {
       this.expression = this.equation.replace(/[/]/mg, 'divide')
       let response = await fetch('http://127.0.0.1:8000/' + this.expression + "/");
       this.equation = await response.json();
-    }
+      this.ansVar = this.equation;
+    },
+
   }
 }
 </script>
