@@ -17,41 +17,6 @@ def absolute(n):
     return n if n >= 0 else -n
 
 
-#------------------------------------------------------------------------------------------------
-#    EXPONENTIAL FUNCTION: X^Y
-#------------------------------------------------------------------------------------------------
-
-# def exponential(x, y):
-    
-
-#     # Check if the passed in values are integers or decimals
-#     # Both integers and decimals have different algorithms to calculate their exponentiation
-
-#     if x % 1 == 0 and y % 1 == 0:
-        
-#         # If x is 0, we can return 0 since 0^x = 0
-        
-#         if x == 0:
-#               return 0
-              
-#           # If y is 0, we can return 1 since x^0 = 1
-              
-#         if y == 0:
-#               return 1
-              
-#           # Recursively call myPow until y = 0, which by then we will have our integer power.
-          
-#         return exponential(x,y-1) * x
-        
-#     # Condition where x or y mod 1 != 0, which means we have a decimal in either x or y    
-    
-#     else:
-
-#     # Credit to https://blog.prepscholar.com/natural-log-rules
-#     # and https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf for natural log identities used to solve this
-#     # problem
-    
-#         return exponential(euler,(y*log(euler,x))) # where e is the base (natural log)
 
 def taylor_exp(x):    
      
@@ -70,49 +35,54 @@ def taylor_exp(x):
           Tn = 1 / Tn
       return Tn
 
+#------------------------------------------------------------------------------------------------
+#    EXPONENTIAL FUNCTION: X^Y
+#------------------------------------------------------------------------------------------------
+
 def exponential(a,x):
-    if x==0:
-        return 1
-    if a==0:
-        return 0
 
-    if a<0:
-        x_floor= floor(x)
-        
-        if x_floor%2 == 0:
-            sign=1
+    if x%1 == 0 and a%1 == 0:
+        return exponential_int(a,x)
+    else:
+        if x==0:
+            return 1
+        if a==0:
+            return 0
+
+        if a<0:
+            x_floor= floor(x)
+
+            if x_floor%2 == 0:
+                sign=1
+            else:
+                sign=-1
+
+            if x%1 != 0:
+                ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
+                return -1 * exponential(-a,x)
+            temp=ln(-a)*x
+            return sign*taylor_exp(temp)
         else:
-            sign=-1
-        
-        if x != x_floor:
-            ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
-            print("Error out of range")
-            return
-        
-        temp=ln(-a)*x
-        return sign*taylor_exp(temp)
-    else:   
-        temp=ln(a)*x
-        return taylor_exp(temp)
+            temp=ln(a)*x
+            return taylor_exp(temp)
 
-def exponential_temp(x,y):
-    return x ** y
+# def exponential_int(x,y):
     # z = x
 
     # if y == 0:
         # return 1
 
     # for i in range(1,absolute(int(y))):
-        
         # print("i : " + str(i))
         # print("z : " + str(z))
         # print("x : " + str(x))
         # z *= x
+
     # print(z)
     # if y < 0:
         # z = 1/z
-    
-#     return z
+
+ #    return z
 
 #------------------------------------------------------------------------------------------------\
 #   INVERSE COSINE FUNCTION: ARCCOS(X)
@@ -176,13 +146,15 @@ def pi_exponential(exponent):
 #------------------------------------------------------------------------------------------------
 
 def log(x,base=10):
+    if x<=0:
+        return None
     return ln(x)/ln(base)
 
 def ln(x):
     if x<=0 :
         return None
 
-    precision=0.000001
+    precision=0.0001
     P=x
     result = 0.0
 
@@ -194,13 +166,13 @@ def ln(x):
     P = x
 
     A = result
-    L = (P / exponential_temp(euler,(result - 1.0)))
+    L = (P / taylor_exp(result - 1.0))
     R = ((result - 1.0) * euler)
     result = ((L + R) / euler)
 
-    while abs(result-A)>precision:
+    while absolute(result-A)>precision:
         A = result
-        L = (P / exponential_temp(euler,(result - 1.0)))
+        L = (P / taylor_exp(result - 1.0))
         R = ((result - 1.0) * euler)
         result = ((L + R) / euler)
     return result

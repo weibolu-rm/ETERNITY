@@ -6,18 +6,19 @@ import re
 
 
 def exponential_http(x,y):
-    if float(x).is_integer() and x<0 and not float(y).is_integer():
-            return HttpResponseNotAllowed("invalid input for exponential")
-    return HttpResponse(exponential_temp(x,y))
+    return HttpResponse(exponential(x,y))
+
 
 def log_http(x,base=10):
     if x<=0:
             return HttpResponseNotAllowed("invalid input for log")
 
-    return HttpResponse(ln(x)/ln(base))
+    return HttpResponse(log(x))
+
 
 def arccos_http(x):
     return HttpResponse(arccos(x))
+
 
 def a_b_exponential_http(a,b,x):
     result = a * (exponential(b,x))
