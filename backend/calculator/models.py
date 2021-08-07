@@ -66,23 +66,23 @@ def exponential(a,x):
             temp=ln(a)*x
             return taylor_exp(temp)
 
-# def exponential_int(x,y):
-    # z = x
+def exponential_int(x,y):
+    z = x
 
-    # if y == 0:
-        # return 1
+    if y == 0:
+        return 1
 
-    # for i in range(1,absolute(int(y))):
-        # print("i : " + str(i))
-        # print("z : " + str(z))
-        # print("x : " + str(x))
-        # z *= x
+    for i in range(1,absolute(int(y))):
+        print("i : " + str(i))
+        print("z : " + str(z))
+        print("x : " + str(x))
+        z *= x
 
-    # print(z)
-    # if y < 0:
-        # z = 1/z
+    print(z)
+    if y < 0:
+        z = 1/z
 
- #    return z
+    return z
 
 #------------------------------------------------------------------------------------------------\
 #   INVERSE COSINE FUNCTION: ARCCOS(X)
@@ -101,8 +101,8 @@ def arccos(x):
 
     x = absolute(x)
 
+    # value out of range check
     if x > 1:
-        print(f"arccos(x) value out of range: [{x}]")
         return None
 
     ret = -0.0187293
