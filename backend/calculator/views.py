@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotAllowed
 import simpleeval as se
 import re
 
@@ -24,37 +24,37 @@ def absolute(n):
 #    EXPONENTIAL FUNCTION: X^Y
 #------------------------------------------------------------------------------------------------
 
-def exponential(x, y):
+# def exponential(x, y):
     
-    # Check if the passed in values are integers or decimals
-    # Both integers and decimals have different algorithms to calculate their exponentiation
-    
-    if x % 1 == 0 and y % 1 == 0:
-        
-        # If y is 0, we can return 0 since 0^x = 0
-        
-        if x == 0:
-  	        return 0
-  	        
-  	    # If y is 0, we can return 1 since x^0 = 1
-  	        
-        if y == 0:
-  	        return 1
-  	        
-  	    # Recursively call myPow until y = 0, which by then we will have our integer power.
-  	    
-        return exponential(x,y-1) * x
-        
-    # Condition where x or y mod 1 != 0, which means we have a decimal in either x or y    
-    
-    else:
 
-    # Credit to https://blog.prepscholar.com/natural-log-rules
-    # and https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf for natural log identities used to solve this
-    # problem
+#     # Check if the passed in values are integers or decimals
+#     # Both integers and decimals have different algorithms to calculate their exponentiation
+
+#     if x % 1 == 0 and y % 1 == 0:
+        
+#         # If x is 0, we can return 0 since 0^x = 0
+        
+#         if x == 0:
+#   	        return 0
+  	        
+#   	    # If y is 0, we can return 1 since x^0 = 1
+  	        
+#         if y == 0:
+#   	        return 1
+  	        
+#   	    # Recursively call myPow until y = 0, which by then we will have our integer power.
+  	    
+#         return exponential(x,y-1) * x
+        
+#     # Condition where x or y mod 1 != 0, which means we have a decimal in either x or y    
     
-        if(ln(x) != None):
-            return exponential(euler,(y*log(euler,x))) # where e is the base (natural log)
+#     else:
+
+#     # Credit to https://blog.prepscholar.com/natural-log-rules
+#     # and https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf for natural log identities used to solve this
+#     # problem
+    
+#         return exponential(euler,(y*log(euler,x))) # where e is the base (natural log)
 
 def taylor_exp(x):    
      
@@ -73,33 +73,53 @@ def taylor_exp(x):
           Tn = 1 / Tn
       return Tn
 
-# def exponential(a,x):
-#     if x==0:
-#         return 1
-#     if a==0:
-#         return 0
+def exponential(a,x):
+    if x==0:
+        return 1
+    if a==0:
+        return 0
 
-#     if a<0:
-#         x_floor= floor(x)
+    if a<0:
+        x_floor= floor(x)
         
-#         if x_floor%2 == 0:
-#             sign=1
-#         else:
-#             sign=-1
+        if x_floor%2 == 0:
+            sign=1
+        else:
+            sign=-1
         
-#         if x != x_floor:
-#             ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
-#             print("Error out of range")
-#             return
-#         temp=ln(-a)*x
+        if x != x_floor:
+            ## The case where a is negative and x has a fraction is not covered, since the answer might be an imaginary number.
+            print("Error out of range")
+            return
+        
+        temp=ln(-a)*x
+        return sign*taylor_exp(temp)
+    else:   
+        temp=ln(a)*x
+        return taylor_exp(temp)
 
-#         return sign*taylor_exp(temp)
-#     else:   
-#         temp=ln(a)*x
-#         return taylor_exp(temp)
+def exponential_temp(x,y):
+    z = x
+
+    if y == 0:
+        return 1
+
+    for i in range(1,absolute(int(y))):
+        
+        print("i : " + str(i))
+        print("z : " + str(z))
+        print("x : " + str(x))
+        z *= x
+    print(z)
+    if y < 0:
+        z = 1/z
+    
+    return z
 
 def exponential_http(x,y):
-    return HttpResponse(exponential(x,y))
+    if float(x).is_integer() and x<0 and not float(y).is_integer():
+            return HttpResponseNotAllowed("invalid input for exponential")
+    return HttpResponse(exponential_temp(x,y))
 
 #------------------------------------------------------------------------------------------------\
 #   INVERSE COSINE FUNCTION: ARCCOS(X)
@@ -162,6 +182,9 @@ def pi_exponential(exponent):
 #------------------------------------------------------------------------------------------------
 
 def log_http(x,base=10):
+    if x<=0:
+            return HttpResponseNotAllowed("invalid input for log")
+    
     return HttpResponse(ln(x)/ln(base))
 
 def log(x,base=10):
@@ -183,13 +206,13 @@ def ln(x):
     P = x
 
     A = result
-    L = (P / exponential(euler,(result - 1.0)))
+    L = (P / exponential_temp(euler,(result - 1.0)))
     R = ((result - 1.0) * euler)
     result = ((L + R) / euler)
 
     while abs(result-A)>precision:
         A = result
-        L = (P / exponential(euler,(result - 1.0)))
+        L = (P / exponential_temp(euler,(result - 1.0)))
         R = ((result - 1.0) * euler)
         result = ((L + R) / euler)
     return result
@@ -207,29 +230,28 @@ def find_mean(input_list):
 
 # Finds the mean absolute deviation.
 def mean_absolute_deviation(input_list):
+
 	mean = find_mean(input_list)
 	absolute_difference = 0
 	for input in input_list:
 		absolute_difference += absolute(input - mean)
 	return absolute_difference/len(input_list)
 
-def mean_absolute_deviation_http(x):
-    return HttpResponse(mean_absolute_deviation(x))
+def mean_absolute_deviation_http(*args):
+    return HttpResponse(mean_absolute_deviation(args))
 
 #------------------------------------------------------------------------------------------------
 # STANDARRD DEVIATION FUNCTION: σ(x)
 #------------------------------------------------------------------------------------------------
 
-def standard_deviation(data):
-    data = data.split(',')
-    N = len(data)
+def standard_deviation(*args):
+    N = len(args)
     total = 0
     total_squared = 0
     # Step 1, 2
-    for i in data:
-        i = int(i)
-        total += i  # sum of dataset
-        total_squared += i * i  # sum of the square of the dataset
+    for i in range(len(args)):
+        total += args[i] # sum of dataset
+        total_squared += args[i] * args[i]  # sum of the square of the dataset
     # Step 3, 4
     sumOfDistances = (total * total) / N
     # Step 5, 6
@@ -238,23 +260,8 @@ def standard_deviation(data):
     ans = variance ** 0.5
     return ans
 
-def standard_deviation_http(data):
-    data = data.split(',')
-    N = len(data)
-    total = 0
-    total_squared = 0
-    # Step 1, 2
-    for i in data:
-        i = int(i)
-        total += i  # sum of dataset
-        total_squared += i * i  # sum of the square of the dataset
-    # Step 3, 4
-    sumOfDistances = (total * total) / N
-    # Step 5, 6
-    variance = (total_squared - sumOfDistances) / N
-    # Step 7
-    ans = variance ** 0.5
-    return HttpResponse(ans)
+def standard_deviation_http(args):
+    return HttpResponse(standard_deviation(args))
 #------------------------------------------------------------------------------------------------
 #   HYPERBOLIC SINE FUNCTION: sinh(x)
 #------------------------------------------------------------------------------------------------
