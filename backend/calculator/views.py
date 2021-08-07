@@ -28,8 +28,8 @@ def mean_absolute_deviation_http(*args):
     return HttpResponse(mean_absolute_deviation(args))
 
 
-def standard_deviation_http(args):
-    return HttpResponse(standard_deviation(args))
+def standard_deviation_http(*args):
+    return HttpResponse(standard_deviation(*args))
 
 
 def sinh_http(x):
