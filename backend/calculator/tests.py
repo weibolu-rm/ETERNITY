@@ -1,7 +1,8 @@
 from django.test import TestCase
 # should be from models, but idk how to register the functions
-from calculator.views import *
+from models import *
 import numpy as np
+import unittest
 
 # ARCCOS(X)
 # testing against numpy
@@ -56,3 +57,21 @@ print("Testing Arccos(x)...")
 unit_test_arccos_range()
 unit_test_arccos_np()
 print("Done.\n")
+
+# Mean Absolute Deviation (MAD) Unit Test
+class TestMeanAbsoluteDeviation(unittest.TestCase):
+
+	def test_mad_of_positive_integers(self):
+		self.assertTrue(mean_absolute_deviation([1,2,3,4]) == 1)
+
+	def test_mad_of_negative_integers(self):
+		self.assertTrue(mean_absolute_deviation([-1,-2,-3,-4]) == 1)
+	
+	def test_mad_of_mixed_integers(self):
+		self.assertTrue(abs(mean_absolute_deviation([-2,-1,0,1,2]) - 1.2) < 0.0000001)
+	
+	def text_mad_of_floats(self):
+		self.assertTrue(abs(mean_absolute_deviation([0.5,0.75,1.2,3.8]) - 1.11875) < 0.0000001)
+
+if __name__ == '__main__':
+    unittest.main()
