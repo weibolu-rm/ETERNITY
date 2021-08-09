@@ -4,6 +4,7 @@ import $ from 'jquery'
 
 createApp(App).mount('#app')
 
-$('input.nightModeSwitch').click(function() {
+$('a.nightModeSwitch').click(function() {
   $("html").toggleClass( "nightMode" );
+  $("#modal-theme").toggleClass( "nightMode" );
 });

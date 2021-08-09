@@ -97,3 +97,12 @@ html.nightMode .uk-card-default.uk-card-hover:hover {
 	height: 100px;
 	
 }
+
+.nightMode .text-black, .nightMode .uk-modal-title {
+    color: white !important;
+}
+
+.nightMode .uk-modal-dialog {
+    background: #121212;
+}
+
