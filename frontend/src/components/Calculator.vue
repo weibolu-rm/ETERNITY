@@ -260,6 +260,9 @@ export default {
     async evaluate() {
       this.expression = this.equation.replace(/[/]/mg, 'divide')
       let response = await fetch('http://127.0.0.1:8000/' + this.expression + "/");
+      if (response.status !== 200) {
+        this.equation = "Syntax Error"
+      }
       this.equation = await response.json();
       this.ansVar = this.equation;
     },
