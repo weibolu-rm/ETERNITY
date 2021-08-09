@@ -45,7 +45,7 @@ class TestMeanAbsoluteDeviation(TestCase):
 
 # Log Unit Test
 class TestLog(TestCase):
-    def test_log():
+    def test_log(self):
         self.assertTrue(round(log(0.1),8) ==-1)
         self.assertTrue(round(log(1),8)==0)
         self.assertTrue(round(log(10),8)==1)
@@ -54,8 +54,8 @@ class TestLog(TestCase):
         self.assertTrue(round(log(10000),8)==4)
 
         self.assertTrue(round(ln(3),8)==1.09861229)
-        self.assertTrue(log(0),None)
-        self.assertTrue(log(-1),None)
+        self.assertEqual(log(0),None)
+        self.assertEqual(log(-1),None)
 # ab^x Unit Test        
 class TestExponential(TestCase):
     def testOne(self):
