@@ -276,7 +276,12 @@ Unfortunately, as ETERNITY approached the deadline, collaborators would often sk
 
 Testing is an essential part of the development of any software. In the course of creating ETERNITY, most collaborators did some form of testing on their own machines before submitting the code for review. Each collaborator also developed a set of unit tests using the Django or built-in Python libraries. This allowed us to test the expected behaviour of each transcendental function to ensure everything works as expected. \\
 
-Unfortunately, these unit tests were introduced too late in the development process. Instead of creating the tests before or during the implementation of the functions, they were created well after the fact. This meant that the unit tests were not properly utilized due to the team's inexperience with software testing.
+Unfortunately, these unit tests were introduced too late in the development process. Instead of creating the tests before or during the implementation of the functions, they were created well after the fact. This meant that the unit tests were not properly utilized due to the team's inexperience with software testing. \\
+
+However, using them did prove to be useful. For example, we noticed that \textit{arccos(x)} was slightly less accurate than what we predicted (6.753e-5 as opposed to 6.7e-5). This is probably due the exponential approximation function that 
+we're using. \\
+
+In the future, if we need to make changes on how the functions are implemented, having the test cases ready using the Django testcase module will prove to be practical. We only need to run a command (see the README) and all functions will be tested in a few seconds without having to run the back-end or front-end. 
 
 \section{Software Design}
 
@@ -582,9 +587,9 @@ def exponential(a,x):
 \end{lstlisting}
 
 \subsection{$\arccos{x}$}
-We have a basic understanding of how trigonometric functions such as $sin$, $cos$ and $tan$ work when picturing the trigonometric identity circle. On computers however, these functions are approximations that make use of derivatives or series such as the Taylor series (Abramowitz M., Stegun I.A. (eds.) - Handbook of mathematical functions p.81) Additionally, these approximations need to be fast. Trigonometry can be used in many applications, namely for calculating angles in video games or simulations. \\
+We have a basic understanding of how trigonometric functions such as $sin$, $cos$ and $tan$ work when picturing the trigonometric identity circle. On computers however, these functions are approximations that make use of derivatives or series such as the Taylor series \cite[p.~81]{handbook-math} Additionally, these approximations need to be fast. Trigonometry can be used in many applications, namely for calculating angles in video games or simulations. \\
 
-$Arcco$ is simply the inverse function of the $cos$ function. To be one-to-one, the range is limited to $[0,\pi]$. The implementation we chose was adapted by Nvidia, a computer graphics company which makes heavy use of fast and precise trigonometric calculations. The approximation uses polynomial approximations which is easy to implement through code (approximations by C. Hastings, Jr., Approximations for digital computers. Princeton Univ. Press, Princeton, N.J., 1955). https://developer.download.nvidia.com/cg/acos.html \\
+$Arccos$ is simply the inverse function of the $cos$ function. To be one-to-one, the range is limited to $[0,\pi]$. The implementation we chose was adapted by Nvidia, a computer graphics company which makes heavy use of fast and precise trigonometric calculations. The approximation uses polynomial approximations which is easy to implement through code. (Approximations by C. Hastlings, Jr.) \cite{approx-for-digital} \\
 
 The absolute error range is less than 6.7e-5 which is well enough for our application. The simple calculations make this implementation well within $O(1)$ time complexity. The advantage of this implementation is that it is fast and precise. The disadvantage is that it makes use of “magic numbers”. However, those have been proven to be reliable over the decades that they were used.
 
@@ -593,10 +598,14 @@ The absolute error range is less than 6.7e-5 which is well enough for our applic
 def arccos(x):
     if x < 0:
         negate = 1
-        # get abs val
-        x = -x
     else:
         negate = 0
+
+    x = absolute(x)
+
+    # value out of range check
+    if x > 1:
+        return None
 
     ret = -0.0187293
     ret = ret * x
@@ -605,13 +614,13 @@ def arccos(x):
     ret = ret - 0.2121144
     ret = ret * x
     ret = ret + 1.5707288
-    
+
     # THIS CONDITIONAL STATEMENT IS BEING USED TO HANDLE INVALID INPUT
     if (exponential((1.0-x), 0.5)  != None):
         ret = ret * exponential((1.0-x), 0.5)
         ret = ret - 2 * negate * ret
-        return negate * 3.14159265358979 + ret
-    print("error in arccos")
+        return negate * pi + ret
+
 \end{lstlisting}
 
 \subsection{MAD (Mean Absolute Deviation)}
