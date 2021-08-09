@@ -4,16 +4,16 @@
            uk-icon="icon: question; ratio: 1.5"
            uk-toggle="target: #modal-close-default"></a>
       <div id="modal-close-default" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
+        <div class="uk-modal-dialog uk-modal-body" id="modal-theme">
           <button class="uk-modal-close-default" type="button" uk-close></button>
           <h2 class="uk-modal-title">How to write our functions?</h2>
-          <p>arccos(x) &rarr; arccos(x)</p>
-          <p>sinh(x) &rarr; sinh(x)</p>
-          <p>log<sub>b</sub>(x) &rarr; log(b, x)</p>
-          <p>MAD &rarr; MAD(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
-          <p>σ(x) &rarr; sd(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
-          <p> ab<sup>x</sup> &rarr; abPow(a, b, x)</p>
-          <p> x<sup>y</sup> &rarr; pow(x, y)</p>
+          <p class="text-black">arccos(x) &rarr; arccos(x)</p>
+          <p class="text-black">sinh(x) &rarr; sinh(x)</p>
+          <p class="text-black">log<sub>b</sub>(x) &rarr; log(b, x)</p>
+          <p class="text-black">MAD &rarr; MAD(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
+          <p class="text-black">σ(x) &rarr; sd(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
+          <p class="text-black"> ab<sup>x</sup> &rarr; abPow(a, b, x)</p>
+          <p class="text-black"> x<sup>y</sup> &rarr; pow(x, y)</p>
         </div>
       </div>
     </li>
