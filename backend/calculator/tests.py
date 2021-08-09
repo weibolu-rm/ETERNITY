@@ -44,7 +44,7 @@ class TestMeanAbsoluteDeviation(TestCase):
         self.assertTrue(abs(mean_absolute_deviation([0.5,0.75,1.2,3.8]) - 1.11875) < 0.0000001)
 
 # Log Unit Test
-class TestLog(TestCase()):
+class TestLog(TestCase):
     def test_log():
         self.assertTrue(log(0.1)==-1)
         self.assertTrue(log(1)==0)
