@@ -1,5 +1,5 @@
 from django.test import TestCase
-from calculator.models import *
+from models import *
 
 # ARCCOS(X)
 # testing against numpy
@@ -7,7 +7,7 @@ class TestArccos(TestCase):
 
     # absolute error range <= 6.753e-5
     def test_arccos(self):
-        self.assertTrue(arccos(1 == 0))
+        self.assertTrue(arccos(1) == 0)
         self.assertTrue(abs(arccos(-1) - pi) <= 0.00006753)
         self.assertTrue(abs(arccos(0) - pi/2) <= 0.00006753)
 
@@ -43,3 +43,16 @@ class TestMeanAbsoluteDeviation(TestCase):
     def text_mad_of_floats(self):
         self.assertTrue(abs(mean_absolute_deviation([0.5,0.75,1.2,3.8]) - 1.11875) < 0.0000001)
 
+# Log Unit Test
+class TestLog():
+    def test_log():
+        self.assertTrue(log(0.1)==-1)
+        self.assertTrue(log(1)==0)
+        self.assertTrue(log(10)==1)
+        self.assertTrue(log(100)==2)
+        self.assertTrue(log(1000)==3)
+        self.assertTrue(log(10000)==4)
+
+        self.assertTrue(abs(ln(3)-1.098612289) < 0.0000001)
+        self.assertTrue(log(0),None)
+        self.assertTrue(log(-1),None)
