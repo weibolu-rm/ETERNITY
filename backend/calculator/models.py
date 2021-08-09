@@ -73,12 +73,8 @@ def exponential_int(x,y):
         return 1
 
     for i in range(1,absolute(int(y))):
-        print("i : " + str(i))
-        print("z : " + str(z))
-        print("x : " + str(x))
         z *= x
 
-    print(z)
     if y < 0:
         z = 1/z
 
