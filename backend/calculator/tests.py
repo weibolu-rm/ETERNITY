@@ -2,7 +2,6 @@ from django.test import TestCase
 from calculator.models import *
 
 # ARCCOS(X)
-# testing against numpy
 class TestArccos(TestCase):
 
     # absolute error range <= 6.753e-5
