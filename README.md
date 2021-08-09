@@ -46,3 +46,13 @@ $ npm install
 $ npm run serve
 ```
 Vue server will be listening on http://localhost:8080/
+
+## How to run unit tests
+Tests are located in `backend/calculator/tests.py`.
+When making changes to the function implementations, make sure to run the tests.
+
+With the activated python environment:
+```
+$ cd backend
+$ ./manage.py test
+```
