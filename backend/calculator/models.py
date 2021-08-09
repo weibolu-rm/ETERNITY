@@ -211,7 +211,7 @@ def standard_deviation(*args):
     # Step 5, 6
     variance = (total_squared - sumOfDistances) / N
     # Step 7
-    ans = variance ** 0.5
+    ans = exponential(variance, 0.5)
     return ans
 
 
