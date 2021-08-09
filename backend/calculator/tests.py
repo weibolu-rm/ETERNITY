@@ -56,3 +56,19 @@ class TestLog(TestCase):
         self.assertTrue(abs(ln(3)-1.098612289) < 0.0000001)
         self.assertTrue(log(0),None)
         self.assertTrue(log(-1),None)
+# ab^x Unit Test        
+class TestExponential(TestCase):
+    def testOne(self):
+        self.assertTrue(exponential(1, 100) == 1)
+
+    def testOneE(self):
+        self.assertTrue(exponential(100, 1) == 100)
+
+    def testPositive(self):
+        self.assertTrue(exponential(2, 4) == 16)
+
+    def testNegative(self):
+        self.assertTrue(exponential(-2, 4) == 16)
+
+    def testNegative2(self):
+        self.assertTrue(exponential(-2, 3) == -8)
