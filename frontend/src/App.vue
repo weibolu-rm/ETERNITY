@@ -1,4 +1,26 @@
 <template>
+  <ul class="uk-iconnav">
+    <li><a href="" class="uk-text-primary uk-margin-small-right" uk-tooltip="title: Need help?"
+           uk-icon="icon: question; ratio: 1.5"
+           uk-toggle="target: #modal-close-default"></a>
+      <div id="modal-close-default" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <h2 class="uk-modal-title">How to write our functions?</h2>
+          <p>arccos(x) &rarr; arccos(x)</p>
+          <p>sinh(x) &rarr; sinh(x)</p>
+          <p>log<sub>b</sub>(x) &rarr; log(b, x)</p>
+          <p>MAD &rarr; MAD(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
+          <p>σ(x) &rarr; sd(x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ...)</p>
+          <p> ab<sup>x</sup> &rarr; abPow(a, b, x)</p>
+          <p> x<sup>y</sup> &rarr; pow(x, y)</p>
+        </div>
+      </div>
+    </li>
+    <li><label class="switch nightModeSwitch" uk-tooltip="title: Switch to dark/light mode">
+      <a class="nightModeSwitch uk-text-primary uk-margin-small-right" uk-icon="icon: paint-bucket; ratio: 1.5"></a>
+    </label></li>
+  </ul>
   <h1>Eternity Calculator</h1>
   <Calculator/>
 </template>

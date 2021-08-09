@@ -1,11 +1,4 @@
 <template>
-   <div class="uk-text-right">
-      <label class="switch nightModeSwitch">
-      <input class="nightModeSwitch" type="checkbox" unchecked>
-      <span class="slider round"></span>
-    </label>
-  </div>
-
   <div class="uk-container-xsmall uk-align-center">
     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
       <div>
@@ -100,11 +93,11 @@
         <a @click="append('1.6180339887')" ref="phi" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#x0278;</a>
       </div>
-      <div uk-tooltip="title: Avogadro's number">
+      <div uk-tooltip="title: avogadro's number">
         <a @click="append('602214076000000000000000')" ref="mol" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">mol</a>
       </div>
-      <div uk-tooltip="title: Pythagoras constant">
+      <div uk-tooltip="title: pythagoras constant">
         <a @click="append('1.414213562')" ref="pyth" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#8730;2</a>
       </div>
