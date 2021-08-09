@@ -72,3 +72,15 @@ class TestExponential(TestCase):
 
     def testNegative2(self):
         self.assertTrue(exponential(-2, 3) == -8)
+
+# Sinh Unit Test 
+class TestSinh(TestCase):
+    def test_sinh(self):
+        #test sinh(x) at a = 0
+        self.assertTrue(sinh(0) == 0)
+        #test if sinh(-x) == -sinh(x)
+        self.assertTrue(sinh(-10) == sinh(10))
+        #test precision of sinh(x) to 8 decimal places and test if fractional arguments work
+        self.assertTrue(round(sinh(0.1),8) == 0.10016675)
+        #test to 4 decimal places
+        self.assertTrue(round(sinh(1),4) ==  1.1752)
