@@ -1,5 +1,5 @@
 from django.test import TestCase
-from models import *
+from calculator.models import *
 
 # ARCCOS(X)
 # testing against numpy
