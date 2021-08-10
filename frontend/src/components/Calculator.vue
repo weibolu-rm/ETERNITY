@@ -2,9 +2,9 @@
   <div class="uk-container-xsmall uk-align-center">
     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
       <div>
-        <div class="uk-card uk-card-default uk-card-default uk-card-body uk-text-right uk-text-lead textBox">
-          {{ this.equation }}
-        </div>
+        <input ref="input_expression" style="text-align: right; border: none"
+               class="uk-card uk-card-default uk-input uk-form-large" placeholder="Enter your expression"
+               :value=this.display type="text">
       </div>
     </div>
     <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
@@ -191,36 +191,47 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      equation: "",
+      display: "",
       expression: "",
       ansVar: "",
+      error: ''
     }
   },
   methods: {
     clear() {
       this.display = ""
-      this.equation = ""
     },
     append(value) {
-      this.equation += value
+      this.display += value
     },
     backspace() {
-      this.equation = this.equation.slice(0, -1);
+      this.display = this.display.slice(0, -1);
     },
     ANS() {
-      this.equation = this.ansVar;
+      this.display = this.ansVar;
     },
     async evaluate() {
-      this.expression = this.equation.replace(/[/]/mg, 'divide')
-      let response = await fetch('http://127.0.0.1:8000/' + this.expression + "/");
-      if (response.status !== 200) {
-        this.equation = "Syntax Error"
-      }
-      this.equation = await response.json();
-      this.ansVar = this.equation;
+      this.expression = this.$refs.input_expression.value
+      this.expression = this.expression.replace(/[/]/mg, 'divide')
+      await axios
+          .get('http://127.0.0.1:8000/' + this.expression + "/")
+          .then((response) => {
+            console.log(response)
+            this.display = response.data;
+            if (this.display === "None" || this.display === "") {
+              this.display = "Math Error"
+            }
+            this.ansVar = this.display;
+          })
+          .catch((error) => {
+            this.display = "Syntax Error"
+            console.log(error.response)
+          })
     },
 
   }
