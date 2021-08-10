@@ -95,13 +95,13 @@ class TestSinh(TestCase):
 class TestStandardDeviation(TestCase):
 
     def test_sd_of_positive_integers(self):
-        self.assertTrue(standard_deviation(10, 12, 23, 23, 16, 23, 21, 16) == 4.898979485566356)
+        self.assertTrue((standard_deviation(10, 12, 23, 23, 16, 23, 21, 16) - 4.898979485566356) < 0.0000001)
 
     def test_sd_of_negative_integers(self):
-        self.assertTrue(standard_deviation(-10, -12, -23, -16, -21) == 5.003998401278722)
+        self.assertTrue((standard_deviation(-10, -12, -23, -16, -21) - 5.003998401278722) < 0.0000001)
 
     def test_sd_of_mixed_integers(self):
-        self.assertTrue(standard_deviation(10, -12, 23, -23, 16, 23, -21, -16) == 18.65475810617763)
+        self.assertTrue((standard_deviation(10, -12, 23, -23, 16, 23, -21, -16) - 18.65475810617763) < 0.0000001)
 
     def test_sd_of_floats(self):
-        self.assertTrue(standard_deviation(1.0, 1.2, 1.6, 3.2, 2.4) == 0.8158431221748451)
+        self.assertTrue((standard_deviation(1.0, 1.2, 1.6, 3.2, 2.4) - 0.8158431221748451) < 0.0000001)
