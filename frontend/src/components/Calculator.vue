@@ -210,10 +210,10 @@ export default {
       this.display += value
     },
     backspace() {
-      this.display = this.display.slice(0, -1);
+      this.display = this.$refs.input_expression.value.slice(0, -1);
     },
     ANS() {
-      this.display = this.ansVar;
+      this.display += this.ansVar;
     },
     async evaluate() {
       this.expression = this.$refs.input_expression.value
@@ -221,7 +221,6 @@ export default {
       await axios
           .get('http://127.0.0.1:8000/' + this.expression + "/")
           .then((response) => {
-            console.log(response)
             this.display = response.data;
             if (this.display === "None" || this.display === "") {
               this.display = "Math Error"
@@ -233,7 +232,6 @@ export default {
             console.log(error.response)
           })
     },
-
   }
 }
 </script>
