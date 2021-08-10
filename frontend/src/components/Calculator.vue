@@ -101,7 +101,7 @@
         <a @click="append('1.414213562')" ref="pyth" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">&#8730;2</a>
       </div>
-      <div>
+      <div uk-tooltip="title: save your answer">
         <a @click="ANS" ref="ANS" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-warning uk-card-body uk-card-hover">ANS</a>
       </div>
