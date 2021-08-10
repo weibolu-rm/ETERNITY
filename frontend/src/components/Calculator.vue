@@ -79,11 +79,11 @@
           e</a>
       </div>
       <div uk-tooltip="title: gravity">
-        <a @click="append('9.8')" ref="g" style="text-decoration: none"
+        <a @click="append('9.80665')" ref="g" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover">g</a>
       </div>
       <div uk-tooltip="title: speed of light">
-        <a @click="append('300000000')" ref="c" style="text-decoration: none"
+        <a @click="append('299792458')" ref="c" style="text-decoration: none"
            class="uk-card uk-card-small uk-card-default uk-text-primary uk-card-body uk-card-hover"><span
             style="font-style: italic; font-family: 'Times New Roman',serif">c</span> (m/s)</a>
       </div>
